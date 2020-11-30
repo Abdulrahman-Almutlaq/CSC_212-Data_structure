@@ -13,21 +13,20 @@ public class PhotoManager {
 	public void addPhoto(Photo p) {
 		// checking if p exists or not
 		photos.findFirst();
-		while(!photos.last()) {
-			if(photos.retrieve().path.equalsIgnoreCase(p.path))
+		while (!photos.last()) {
+			if (photos.retrieve().path.equalsIgnoreCase(p.path))
 				return;
 			photos.findNext();
 		}
-		if(photos.retrieve().path.equalsIgnoreCase(p.path))
+		if (photos.retrieve().path.equalsIgnoreCase(p.path))
 			return;
 		// done checking
-		
-		
+
 		LinkedList<String> temp = p.tags;
 		temp.findFirst();
-		
+
 		while (!temp.last()) {
-			bst.insert(temp.retrieve(), new LinkedList<Photo>());//duplicate key will be rejected so no worries 
+			bst.insert(temp.retrieve(), new LinkedList<Photo>());// duplicate key will be rejected so no worries
 			temp.findNext();
 		}
 		bst.insert(temp.retrieve(), new LinkedList<Photo>());

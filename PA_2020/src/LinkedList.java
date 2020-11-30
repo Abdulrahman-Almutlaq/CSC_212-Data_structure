@@ -1,55 +1,65 @@
 class Node<T> {
 	public T data;
 	public Node<T> next;
-	public Node (T val) {
+
+	public Node(T val) {
 		data = val;
 		next = null;
 	}
 }
+
 public class LinkedList<T> {
 	private Node<T> head;
 	private Node<T> current;
-	public LinkedList () {
+
+	public LinkedList() {
 		head = current = null;
 	}
-	public boolean empty () {
+
+	public boolean empty() {
 		return head == null;
 	}
-	public boolean last () {
+
+	public boolean last() {
 		return current.next == null;
 	}
-	public boolean full () {
+
+	public boolean full() {
 		return false;
 	}
-	public void findFirst () {
+
+	public void findFirst() {
 		current = head;
 	}
-	public void findNext () {
+
+	public void findNext() {
 		current = current.next;
 	}
-	public T retrieve () {
+
+	public T retrieve() {
 		return current.data;
 	}
-	public void update (T val) {
+
+	public void update(T val) {
 		current.data = val;
 	}
-	public void insert (T val) {
+
+	public void insert(T val) {
 		Node<T> tmp;
 		if (empty()) {
-			current = head = new Node<T> (val);
-		}
-		else {
+			current = head = new Node<T>(val);
+		} else {
 			tmp = current.next;
-			current.next = new Node<T> (val);
+			current.next = new Node<T>(val);
 			current = current.next;
 			current.next = tmp;
 		}
 	}
-	public void remove () {
+
+	public void remove() {
 		if (current == head) {
 			head = head.next;
-		}
-		else {
+		} else {
 			Node<T> tmp = head;
 			while (tmp.next != current)
 				tmp = tmp.next;

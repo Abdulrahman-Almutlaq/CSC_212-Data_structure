@@ -61,10 +61,10 @@ public class BST<T> {
 		}
 		return false;
 	}
-	
+
 	public int NBComp(String k) {
 
-		int counter=0;
+		int counter = 0;
 		BSTNode<T> p = root;
 		while (p != null) {
 			current = p;
@@ -161,38 +161,35 @@ public class BST<T> {
 		return false; // Not found
 	}
 
-	
 	public LinkedList<T> getVals() {
 		LinkedList<T> temp = new LinkedList<>();
 		BSTNode<T> trav = root;
-		getVals(temp,trav);
+		getVals(temp, trav);
 		return temp;
 	}
 
-	private void getVals(LinkedList<T> temp,BSTNode<T> trav) {
-		if(trav==null)
+	private void getVals(LinkedList<T> temp, BSTNode<T> trav) {
+		if (trav == null)
 			return;
+		getVals(temp, trav.left);
 		temp.insert(trav.data);
-		getVals(temp,trav.left);
-		getVals(temp,trav.right);
-		
+		getVals(temp, trav.right);
+
 	}
-	
+
 	public LinkedList<String> getKeys() {
 		LinkedList<String> temp = new LinkedList<>();
 		BSTNode<T> trav = root;
-		getKeys(temp,trav);
+		getKeys(temp, trav);
 		return temp;
 	}
 
-	private void getKeys(LinkedList<String> temp,BSTNode<T> trav) {
-		if(trav==null)
+	private void getKeys(LinkedList<String> temp, BSTNode<T> trav) {
+		if (trav == null)
 			return;
+		getKeys(temp, trav.left);
 		temp.insert(trav.key);
-		getKeys(temp,trav.left);
-		getKeys(temp,trav.right);
-		}
-	
-	
-	
+		getKeys(temp, trav.right);
+	}
+
 }
