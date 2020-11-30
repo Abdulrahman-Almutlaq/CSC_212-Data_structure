@@ -31,6 +31,7 @@ public class Album {
 		BST<LinkedList<Photo>> bst = manager.bst;		
 		LinkedList<Photo> photos = new LinkedList<>();
 		
+		if(temp.length!=0)
 		for(int i=0;i<temp.length;i++) {
 			bst.findKey(temp[i]);
 			LinkedList<Photo> ll = bst.retrieve();
@@ -41,6 +42,8 @@ public class Album {
 			}
 			photos.insert(ll.retrieve());
 		}
+		else 
+			photos = manager.photos;
 		return photos;
 	}
 
